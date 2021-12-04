@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMoveScript : MonoBehaviour
 {
     Rigidbody2D rb2d;
+	
     // moveSpeed determines player's velocity
     private float moveSpeed = 3;
 
@@ -14,9 +15,13 @@ public class PlayerMoveScript : MonoBehaviour
     public const string DOWN = "down";
 
     string buttonPressed;
-    // ChangeSprite is used to switch to the appropriate sprite for what direction the player is moving in
     public SpriteRenderer spriteRenderer;
     public Sprite[] spriteArray;
+	    
+	/* ChangeSprite is used to switch to the appropriate sprite for what direction the player is moving in
+	* 
+	* param:  int x - int variable corresponding to index in spriteArray
+	*/
     void ChangeSprite(int x)
     {
         spriteRenderer.sprite = spriteArray[x];
