@@ -7,8 +7,8 @@ public class PlayerMoveScript : MonoBehaviour
     Rigidbody2D rb2d;
 	
     // moveSpeed determines player's velocity
-    private float moveSpeed = 3;
-
+    private float moveSpeed = 8;
+	
     public const string EAST = "right";
     public const string WEST = "left";
     public const string NORTH = "up";
@@ -102,15 +102,19 @@ public class PlayerMoveScript : MonoBehaviour
 				break;
 			case NORTH_EAST:
 				rb2d.velocity = new Vector2(moveSpeed / Mathf.Sqrt(2), moveSpeed / Mathf.Sqrt(2));
+				ChangeSprite(4);
 				break;
 			case NORTH_WEST:
 				rb2d.velocity = new Vector2(-moveSpeed / Mathf.Sqrt(2), moveSpeed / Mathf.Sqrt(2));
+				ChangeSprite(5);
 				break;
 			case SOUTH_EAST:
 				rb2d.velocity = new Vector2(moveSpeed / Mathf.Sqrt(2), -moveSpeed / Mathf.Sqrt(2));
+				ChangeSprite(6);
 				break;
 			case SOUTH_WEST:
 				rb2d.velocity = new Vector2(-moveSpeed / Mathf.Sqrt(2), -moveSpeed / Mathf.Sqrt(2));
+				ChangeSprite(7);
 				break;
 			default:
 				rb2d.velocity = new Vector2(0, 0);
