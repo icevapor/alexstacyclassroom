@@ -11,8 +11,11 @@ public class EventController : MonoBehaviour
 	// Add your event tag and probability at the same index.
 	// The balance of the game is based on the probability array summing to 1.0,
 	// if you plan on making a change, be sure to discuss it.
-	private float[] probabilityArray = {0.25f, 0.2f, 0.05f, 0.25f, 0.1f, 0.1f, 0.05f};
-	private string[] eventTagArray = {"COMBAT", "WEATHER", "SHARK", "SHOP", "SUPPLY", "TREASURE", "CREWMATE"};
+	private float[] probabilityArray = {0.2f, 0.2f, 0.05f, 0.25f, 0.1f, 0.1f, 0.05f, 0.05f};
+	private string[] eventTagArray = {"COMBAT", "WEATHER", "SHARK", "SHOP", "SUPPLY", "TREASURE", "CREWMATE", "KRAKEN"};
+	
+	//debug variable, remove later
+	public int totalEvents = 0;
 
 	
 	
@@ -34,16 +37,19 @@ public class EventController : MonoBehaviour
 		for (int i = 0; i < 77; i++)
 		{
 			eventSpawnPoints[i].GetComponent<EventTrigger>().thisEvent = getEvent(i);
+			eventSpawnPoints[i].GetComponent<EventTrigger>().arrayIndex = i;
 		}
     }
 	
 	private string getEvent(int index)
 	{
 		//  Roll to see if an event occurs
-		if (Random.Range(0.0f, 1.0f) > EVENT_PROBABILITY)
+		if (Random.Range(0.0f, 1.0f) < (1.0f - (EVENT_PROBABILITY * getProbabilityMultiplier(index)) ) )
 		{
 			return "NONE";
 		}
+		
+		totalEvents++;
 		
 		float roll = Random.Range(0.0f, 1.0f);
 		
@@ -65,6 +71,36 @@ public class EventController : MonoBehaviour
 		
 		// failsafe
 		return null;
+	}
+	
+	/*
+	* Gets a multiplier for the event probability
+	* based on the position of the event tile.
+	* Tiles towards to top and bottom of the map are weighted
+	* heavier, along with tiles towards the right.
+	*/
+	private float getProbabilityMultiplier(int index)
+	{
+		float multiplier = 1.0f;
+		
+		if (index < 22)
+		{
+			multiplier += 1.0f;
+		}
+		if (index >= 66)
+		{
+			multiplier += 1.0f;
+		}
+		if ((index >= 33 && index <= 36) || (index >= 44 && index <= 47))
+		{
+			multiplier -= 1.0f;
+		}
+		if ( (index % 11) >= 5)
+		{
+			multiplier += 0.5f;
+		}
+		
+		return multiplier;
 	}
 	
 	
