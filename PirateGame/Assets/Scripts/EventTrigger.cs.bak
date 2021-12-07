@@ -20,8 +20,8 @@ public class EventTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
-		spriteRenderer.sprite = fogOfWarSpriteArray[Random.Range(0, 4)];
+        //this.spriteRenderer = GetComponent<SpriteRenderer>();
+		//spriteRenderer.sprite = fogOfWarSpriteArray[Random.Range(0, 4)];
     }
 	
 	void OnTriggerEnter2D (Collider2D collider)
@@ -37,7 +37,7 @@ public class EventTrigger : MonoBehaviour
 					break;
 				case "WEATHER":
 					ChangeSprite(1);
-					eventController.generateEvent(1);
+					eventController.GetComponent<EventController>().generateEvent(1);
 					break;
 				case "SHARK":
 					ChangeSprite(2);

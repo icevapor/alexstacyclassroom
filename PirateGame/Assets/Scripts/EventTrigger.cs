@@ -21,7 +21,7 @@ public class EventTrigger : MonoBehaviour
     void Start()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
-		spriteRenderer.sprite = fogOfWarSpriteArray[Random.Range(0, 4)];
+		//spriteRenderer.sprite = fogOfWarSpriteArray[Random.Range(0, 4)];
     }
 	
 	void OnTriggerEnter2D (Collider2D collider)
