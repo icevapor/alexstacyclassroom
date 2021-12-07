@@ -29,7 +29,30 @@ public class EventController : MonoBehaviour
 	*/
 	public GameObject[] eventSpawnPoints;
 	
+	/* All code neccesary for execution of events
+	*  goes in this array.  Ensure indexing for each event
+	*  matches eventTagArray and probabilityArray.
+	*/
+	public GameObject[] eventScripts;
 	
+	/*
+	* Generates an event.
+	* 
+	* @param:  index - index that corrolates to event to be executed
+	*				   this index should match probabilityArray and
+	*				   eventTagArray's indexing.
+	*/
+	public void generateEvent(int index)
+	{
+		switch (index)
+		{
+			case 1:
+				eventScripts[index].GetComponent<WeatherEvent>().startEvent();
+				break;
+			default:
+				break;
+		}
+	}
 	
     // Start is called before the first frame update
     void Start()

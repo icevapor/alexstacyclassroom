@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MiniMapElement
+  - InGameMenu
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MiniMapElement
   - Water
   - UI
   - 
@@ -38,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: minimap
+    uniqueID: 3571004463
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

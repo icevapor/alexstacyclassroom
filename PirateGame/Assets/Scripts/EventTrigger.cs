@@ -5,6 +5,8 @@ using UnityEngine;
 public class EventTrigger : MonoBehaviour
 {
 	public string thisEvent;
+	public GameObject eventController;
+	
 	
 	public SpriteRenderer spriteRenderer;
     public Sprite[] eventSpriteArray;
@@ -19,7 +21,6 @@ public class EventTrigger : MonoBehaviour
     void Start()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
-		
 		spriteRenderer.sprite = fogOfWarSpriteArray[Random.Range(0, 4)];
     }
 	
@@ -36,6 +37,7 @@ public class EventTrigger : MonoBehaviour
 					break;
 				case "WEATHER":
 					ChangeSprite(1);
+					eventController.GetComponent<EventController>().generateEvent(1);
 					break;
 				case "SHARK":
 					ChangeSprite(2);
@@ -61,8 +63,6 @@ public class EventTrigger : MonoBehaviour
 			}			
 		} 
     }
-	
-	/*
 	
 	/* ChangeSprite is used to switch to the appropriate sprite for what direction the player is moving in
 	* 

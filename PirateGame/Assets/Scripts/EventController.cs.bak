@@ -29,7 +29,23 @@ public class EventController : MonoBehaviour
 	*/
 	public GameObject[] eventSpawnPoints;
 	
+	/* All code neccesary for execution of events
+	*  goes in this array.  Ensure indexing for each event
+	*  matches eventTagArray and probabilityArray.
+	*/
+	public GameObject[] eventScripts;
 	
+	/*
+	* Generates an event.
+	* 
+	* @param:  index - index that corrolates to event to be executed
+	*				   this index should match probabilityArray and
+	*				   eventTagArray's indexing.
+	*/
+	public void generateEvent(int index)
+	{
+		//eventScripts[index].startEvent();
+	}
 	
     // Start is called before the first frame update
     void Start()
@@ -37,6 +53,7 @@ public class EventController : MonoBehaviour
 		for (int i = 0; i < 77; i++)
 		{
 			eventSpawnPoints[i].GetComponent<EventTrigger>().thisEvent = getEvent(i);
+			eventSpawnPoints[i].GetComponent<EventTrigger>().arrayIndex = i;
 		}
     }
 	

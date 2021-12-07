@@ -7,7 +7,7 @@ public class PlayerMoveScript : MonoBehaviour
     Rigidbody2D rb2d;
 	
     // moveSpeed determines player's velocity
-    private float moveSpeed = 5;
+    public float moveSpeed = 15f;
 	
     public const string EAST = "right";
     public const string WEST = "left";
