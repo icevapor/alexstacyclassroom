@@ -46,7 +46,7 @@ public class EventController : MonoBehaviour
 	{
 		switch (index)
 		{
-			case 1:
+			case 1: // WEATHER
 				eventScripts[index].GetComponent<WeatherEvent>().startEvent();
 				break;
 			default:

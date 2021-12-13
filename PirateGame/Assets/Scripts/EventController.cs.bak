@@ -44,7 +44,15 @@ public class EventController : MonoBehaviour
 	*/
 	public void generateEvent(int index)
 	{
-		//eventScripts[index].startEvent();
+		switch (index)
+		{
+			case 1: // WEATHER
+				eventScripts[index].GetComponent<WeatherEvent>().startEvent();
+				break;
+			
+			default:
+				break;
+		}
 	}
 	
     // Start is called before the first frame update

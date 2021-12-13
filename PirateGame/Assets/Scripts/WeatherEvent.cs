@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class WeatherEvent : MonoBehaviour
 {
 	public GameObject menu;
-	public GameObject eventText;
-	public GameObject optionText;
+	public Text eventText;
+	public Text optionText;
+	
+	private bool menuEnabled = false;
 	
 	// These arrays are associated.  If you're adding a new event--add it here.
 	// Add your event tag and probability at the same index.
@@ -14,6 +18,16 @@ public class WeatherEvent : MonoBehaviour
 	// if you plan on making a change, be sure to discuss it.
 	private float[] probabilityArray = {0.33f, 0.33f, 0.34f};
 	private string[] eventTagArray = {"STORM", "CALM SEAS", "FOG"};
+	
+	void Update()
+	{
+		if (menuEnabled && Input.GetKey(KeyCode.Space))
+        {
+            menu.SetActive(false);
+			menuEnabled = false;
+			Time.timeScale = 1;
+        }
+	}
 
 	public void startEvent()
 	{
@@ -24,10 +38,10 @@ public class WeatherEvent : MonoBehaviour
 				storm();
 				break;
 			case "CALM SEAS":
-				storm();
+				calmSeas();
 				break;
 			case "FOG":
-				storm();
+				fog();
 				break;
 			default:
 				break;
@@ -36,14 +50,29 @@ public class WeatherEvent : MonoBehaviour
 	
 	private void storm()
 	{
+		eventText.text = "The clap of thunder echoes loudly ahead..";
+		optionText.text = "1. OK";
+		menuEnabled = true;
+		menu.SetActive(true);
+		Time.timeScale = 0;
 	}
 	
 	private void fog()
 	{
+		eventText.text = "A thick fog shrouds the way going forward..";
+		optionText.text = "1. OK";
+		menuEnabled = true;
+		menu.SetActive(true);
+		Time.timeScale = 0;
 	}
 	
 	private void calmSeas()
 	{
+		eventText.text = "The seas seem eeriley calm here..";
+		optionText.text = "1. OK";
+		menuEnabled = true;
+		menu.SetActive(true);
+		Time.timeScale = 0;
 	}
 	
 	private string rollWeatherEvent()

@@ -37,11 +37,13 @@ public class PlayerMoveScript : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+		Debug.Log(GameObject.Find("CaptainStats").GetComponent<NonCombatPlayerStats>().sailing.getValue()+" is movement speed");
+		this.moveSpeed = ((float) GameObject.Find("CaptainStats").GetComponent<NonCombatPlayerStats>().sailing.getValue()) / 4.0f;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {		
 		if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
         {
             buttonPressed = NORTH_EAST;

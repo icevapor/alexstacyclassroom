@@ -37,6 +37,8 @@ public class PlayerMoveScript : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+		Debug.Log(GameObject.Find("CaptainStats").GetComponent<NonCombatPlayerStats>().sailing.getValue()+" is movement speed");
+		this.moveSpeed = ((float) GameObject.Find("CaptainStats").GetComponent<NonCombatPlayerStats>().sailing.getValue()) / 2.0f;
     }
 
     // Update is called once per frame

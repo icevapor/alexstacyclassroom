@@ -12,6 +12,7 @@ public class Stat
 	{
 		this.baseValue = val;
 	}
+	
     public int GetValue()
     {
         return baseValue;

@@ -29,10 +29,10 @@ public class EventTrigger : MonoBehaviour
 	
 	void OnTriggerEnter2D (Collider2D collider)
     {			
-		if (!eventTriggered && collider.tag == "Player")
+		if (collider.tag == "Player")
 		{
 			// Debug.Log("Player triggered "+thisEvent+" event.");
-			this.eventTriggered = true;
+			eventTriggered = true;
 			
 			switch (thisEvent)
 			{

@@ -13,7 +13,7 @@ public class Stat
 		this.baseValue = val;
 	}
 	
-    public int GetValue()
+    public int getValue()
     {
         return baseValue;
     }
