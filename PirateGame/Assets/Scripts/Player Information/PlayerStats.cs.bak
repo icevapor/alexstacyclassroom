@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats: MonoBehaviour
 {
-	public string crewmateName;
+	public string name;
 	
     // Heres our statblock that can be used for any character. Ship will probably only have health, hardiness, strength, and accuracy.
     public int maxHealth = 100;

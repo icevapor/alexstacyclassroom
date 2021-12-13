@@ -6,7 +6,7 @@ using UnityEngine;
 public class MiniMapController : MonoBehaviour
 {
 	/*
-	* Map icon GameObjects must be added to the array
+	* Static map icon GameObjects must be added to the array
 	* and set to inactive to start.  This script ensures
 	* they are activated at the beginning of the game. 
 	* We do this to reduce clutter in the scene editor--potentially

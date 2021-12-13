@@ -41,7 +41,7 @@ public class PlayerMoveScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {		
 		if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
         {
             buttonPressed = NORTH_EAST;
