@@ -10,7 +10,7 @@ public class NonCombatPlayerStats: MonoBehaviour
 	
 	// Sailing determines ship speed and chance to avoid certain obstacle related events.  Main stat for Helmsman.
 	public Stat sailing;
-	
+
 	public Stat diplomacy;
 	
 }

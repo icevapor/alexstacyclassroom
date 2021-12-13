@@ -18,4 +18,9 @@ public class Stat
         return baseValue;
     }
 
+    public void setValue(int val)
+    {
+        this.baseValue = val;
+    }
+
 }
