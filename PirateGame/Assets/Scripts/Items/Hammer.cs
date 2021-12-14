@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryScript : MonoBehaviour
+public class Hammer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    new public string name = "Hammer";
+    public int stackSize;
+    public Sprite icon;
 
     // Update is called once per frame
     void Update()
